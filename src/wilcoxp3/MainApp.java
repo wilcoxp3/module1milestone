@@ -14,18 +14,16 @@ import java.util.Scanner;
  */
 public class MainApp {
 
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String[] args) {
+    private static final Scanner SC = new Scanner(System.in);
 
-        Scanner sc = new Scanner(System.in);
+    public static void main(String[] args) {
 
         boolean keepGoing = true;
         while (keepGoing) {
 
             printMenu();
-            int choice = sc.nextInt();
+            int choice = SC.nextInt();
+            SC.nextLine();
 
             switch (choice) {
 
@@ -54,16 +52,14 @@ public class MainApp {
 
     private static void runHelloWorld() {
 
-        Scanner sc = new Scanner(System.in);
         System.out.print("Please enter your name: ");
-        String name = sc.nextLine();
+        String name = SC.nextLine();
         System.out.println("Hello, " + name + "!");
 
     }
 
     private static void runIntDivider() {
 
-        Scanner sc = new Scanner(System.in);
         int int1;
         int int2;
         int quotient;
@@ -72,9 +68,11 @@ public class MainApp {
         System.out.println("Let's divide some integers.");
 
         System.out.print("Enter first integer: ");
-        int1 = sc.nextInt();
+        int1 = SC.nextInt();
+        SC.nextLine();
         System.out.print("Enter second integer: ");
-        int2 = sc.nextInt();
+        int2 = SC.nextInt();
+        SC.nextLine();
 
         quotient = int1 / int2;
         remainder = int1 % int2;
@@ -87,7 +85,6 @@ public class MainApp {
 
         System.out.println("Let's sort some words.");
 
-        Scanner sc = new Scanner(System.in);
         int numOfWords = 0;
         String[] words = new String[1];
         // boolean keepGoing = true;
@@ -95,13 +92,13 @@ public class MainApp {
         while (true) {
 
             System.out.print("Enter a word: ");
-            String word = sc.nextLine();
+            String word = SC.nextLine();
             words[numOfWords] = word;
             numOfWords++;
 
             System.out.print("Add another word (y/n)? ");
 
-            String answer = sc.nextLine();
+            String answer = SC.nextLine();
             if (!answer.equalsIgnoreCase("y")) {
                 break;
             }
