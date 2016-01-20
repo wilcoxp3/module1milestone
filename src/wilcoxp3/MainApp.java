@@ -4,6 +4,9 @@ import java.util.Arrays;
 import java.util.Scanner;
 
 /**
+ * MainApp contains the main method for a console application in which the user
+ * may choose between being greeted by name, dividing integers, or providing a
+ * list of words to be alphabetized.
  *
  * @author wilcoxp3
  */
@@ -14,8 +17,6 @@ public class MainApp {
     public static void main(String[] args) {
 
         sc = new Scanner(System.in);
-        
-        int choice;
         boolean keepGoing = true;
         while (keepGoing) {
 
@@ -24,7 +25,7 @@ public class MainApp {
                     + "3 - Word Sorter\n"
                     + "4 - Exit\n");
 
-            choice = sc.nextInt();
+            int choice = sc.nextInt();
             sc.nextLine();
 
             switch (choice) {
@@ -44,12 +45,19 @@ public class MainApp {
         }
     }
 
+    /**
+     * Prompts the user to provide a name, and greets the user by that name.
+     */
     private static void sayHello() {
 
         System.out.print("Please enter your name: ");
         System.out.println("Hello, " + sc.nextLine() + "!");
     }
 
+    /**
+     * Prompts the user to provide two integers and displays their quotient and
+     * remainder.
+     */
     private static void divideInt() {
 
         int int1;
@@ -72,35 +80,31 @@ public class MainApp {
                 + " Remainder " + remainder + "\n");
     }
 
+    /**
+     * Prompts the user to provide any number of words and displays the words in
+     * alphabetical order.
+     */
     private static void sortWords() {
 
         System.out.println("Let's sort some words.");
-
-        int wordCount = 0;
         String[] words = new String[0];
 
         while (true) {
 
             words = Arrays.copyOf(words, words.length + 1);
-
             System.out.print("Enter a word: ");
             String word = sc.nextLine();
-            wordCount++;
-            words[wordCount - 1] = word;
-
+            words[words.length - 1] = word;
             System.out.print("Add another word (y/n)? ");
 
-            String answer = sc.nextLine();
-            if (!answer.equalsIgnoreCase("y")) {
+            if (!sc.nextLine().equalsIgnoreCase("y")) {
                 break;
             }
         }
 
         Arrays.sort(words);
-
         for (String word : words) {
             System.out.print(word + "\n");
         }
     }
-
 }
