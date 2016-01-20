@@ -1,6 +1,7 @@
 package wilcoxp3;
 
 import java.util.Arrays;
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 /**
@@ -25,7 +26,14 @@ public class MainApp {
                     + "3 - Word Sorter\n"
                     + "4 - Exit\n");
 
-            int choice = sc.nextInt();
+            int choice;
+            try {
+                choice = sc.nextInt();
+            } catch (InputMismatchException e) {
+                System.out.println("Sorry, that is not a valid choice.");
+                choice = 5;
+            }
+
             sc.nextLine();
 
             switch (choice) {
