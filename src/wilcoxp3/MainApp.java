@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package wilcoxp3;
 
 import java.util.Arrays;
@@ -21,36 +16,33 @@ public class MainApp {
         boolean keepGoing = true;
         while (keepGoing) {
 
-            printMenu();
+            System.out.print("1 - Hello, World!\n"
+                    + "2 - Integer Divider\n"
+                    + "3 - Word Sorter\n"
+                    + "4 - Exit\n");
+
             int choice = SC.nextInt();
             SC.nextLine();
 
             switch (choice) {
 
                 case 1:
-                    runHelloWorld();
+                    sayHello();
                     break;
                 case 2:
-                    runIntDivider();
+                    divideInt();
                     break;
                 case 3:
-                    runWordSorter();
+                    sortWords();
                     break;
                 case 4:
                     keepGoing = false;
                     break;
             }
         }
-
     }
 
-    private static void printMenu() {
-
-        System.out.print("1 - Hello, World!\n2 - Integer Divider\n"
-                + "3 - Word Sorter\n4 - Exit\n");
-    }
-
-    private static void runHelloWorld() {
+    private static void sayHello() {
 
         System.out.print("Please enter your name: ");
         String name = SC.nextLine();
@@ -58,7 +50,7 @@ public class MainApp {
 
     }
 
-    private static void runIntDivider() {
+    private static void divideInt() {
 
         int int1;
         int int2;
@@ -78,23 +70,24 @@ public class MainApp {
         remainder = int1 % int2;
 
         System.out.println(int1 + " / " + int2 + " = " + quotient
-                + " remainder " + remainder + "\n");
+                + " Remainder " + remainder + "\n");
     }
 
-    private static void runWordSorter() {
+    private static void sortWords() {
 
         System.out.println("Let's sort some words.");
 
-        int numOfWords = 0;
-        String[] words = new String[1];
-        // boolean keepGoing = true;
+        int wordCount = 0;
+        String[] words = new String[0];
 
         while (true) {
 
+            words = Arrays.copyOf(words, words.length + 1);
+
             System.out.print("Enter a word: ");
             String word = SC.nextLine();
-            words[numOfWords] = word;
-            numOfWords++;
+            wordCount++;
+            words[wordCount - 1] = word;
 
             System.out.print("Add another word (y/n)? ");
 
@@ -102,18 +95,13 @@ public class MainApp {
             if (!answer.equalsIgnoreCase("y")) {
                 break;
             }
-
-            if (words.length == numOfWords) {
-                words = Arrays.copyOf(words, words.length + 1);
-            }
         }
 
         Arrays.sort(words);
 
         for (String word : words) {
-            System.out.println(word);
+            System.out.print(word + "\n");
         }
-        System.out.println();
     }
 
 }
