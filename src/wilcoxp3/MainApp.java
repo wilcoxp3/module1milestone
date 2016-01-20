@@ -9,10 +9,13 @@ import java.util.Scanner;
  */
 public class MainApp {
 
-    private static final Scanner SC = new Scanner(System.in);
+    private static Scanner sc;
 
     public static void main(String[] args) {
 
+        sc = new Scanner(System.in);
+        
+        int choice;
         boolean keepGoing = true;
         while (keepGoing) {
 
@@ -21,11 +24,10 @@ public class MainApp {
                     + "3 - Word Sorter\n"
                     + "4 - Exit\n");
 
-            int choice = SC.nextInt();
-            SC.nextLine();
+            choice = sc.nextInt();
+            sc.nextLine();
 
             switch (choice) {
-
                 case 1:
                     sayHello();
                     break;
@@ -45,9 +47,7 @@ public class MainApp {
     private static void sayHello() {
 
         System.out.print("Please enter your name: ");
-        String name = SC.nextLine();
-        System.out.println("Hello, " + name + "!");
-
+        System.out.println("Hello, " + sc.nextLine() + "!");
     }
 
     private static void divideInt() {
@@ -58,13 +58,12 @@ public class MainApp {
         int remainder;
 
         System.out.println("Let's divide some integers.");
-
         System.out.print("Enter first integer: ");
-        int1 = SC.nextInt();
-        SC.nextLine();
+        int1 = sc.nextInt();
+        sc.nextLine();
         System.out.print("Enter second integer: ");
-        int2 = SC.nextInt();
-        SC.nextLine();
+        int2 = sc.nextInt();
+        sc.nextLine();
 
         quotient = int1 / int2;
         remainder = int1 % int2;
@@ -85,13 +84,13 @@ public class MainApp {
             words = Arrays.copyOf(words, words.length + 1);
 
             System.out.print("Enter a word: ");
-            String word = SC.nextLine();
+            String word = sc.nextLine();
             wordCount++;
             words[wordCount - 1] = word;
 
             System.out.print("Add another word (y/n)? ");
 
-            String answer = SC.nextLine();
+            String answer = sc.nextLine();
             if (!answer.equalsIgnoreCase("y")) {
                 break;
             }
