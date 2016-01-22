@@ -126,16 +126,21 @@ public class MainApp {
             choice = 0;
         }
         sc.nextLine();
-
         return choice;
     }
 
+    /**
+     * Gets a nonzero integer from the user.
+     *
+     * @return int given by the user
+     */
     private static int getNonZeroInt() {
 
         int myInt = 0;
         while (myInt == 0) {
             myInt = getInt();
-            System.out.println("Cannot divide by zero.");
+            System.out.println("Cannot divide by zero. "
+                    + "Enter a different integer.");
         }
         return myInt;
     }
