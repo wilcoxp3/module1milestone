@@ -31,7 +31,7 @@ public class MainApp {
                     + "4 - Exit\n");
 
             int choice = getInt();
-            
+
             switch (choice) {
                 case 1:
                     sayHello();
@@ -74,11 +74,9 @@ public class MainApp {
 
         System.out.println("Let's divide some integers.");
         System.out.print("Enter first integer: ");
-        int1 = sc.nextInt();
-        sc.nextLine();
+        int1 = getInt();
         System.out.print("Enter second integer: ");
-        int2 = sc.nextInt();
-        sc.nextLine();
+        int2 = getNonZeroInt();
 
         quotient = int1 / int2;
         remainder = int1 % int2;
@@ -100,8 +98,7 @@ public class MainApp {
 
             words = Arrays.copyOf(words, words.length + 1);
             System.out.print("Enter a word: ");
-            String word = sc.nextLine();
-            words[words.length - 1] = word;
+            words[words.length - 1] = sc.nextLine().toLowerCase();
             System.out.print("Add another word (y/n)? ");
 
             if (!sc.nextLine().equalsIgnoreCase("y")) {
@@ -129,6 +126,17 @@ public class MainApp {
             choice = 0;
         }
         sc.nextLine();
+
         return choice;
+    }
+
+    private static int getNonZeroInt() {
+
+        int myInt = 0;
+        while (myInt == 0) {
+            myInt = getInt();
+            System.out.println("Cannot divide by zero.");
+        }
+        return myInt;
     }
 }
