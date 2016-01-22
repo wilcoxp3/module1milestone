@@ -26,14 +26,7 @@ public class MainApp {
                     + "3 - Word Sorter\n"
                     + "4 - Exit\n");
 
-            int choice;
-            try {
-                choice = sc.nextInt();
-            } catch (InputMismatchException e) {
-                System.out.println("Sorry, that is not a valid choice.");
-                choice = 5;
-            }
-
+            int choice = sc.nextInt();
             sc.nextLine();
 
             switch (choice) {
@@ -115,4 +108,5 @@ public class MainApp {
             System.out.print(word + "\n");
         }
     }
+
 }
