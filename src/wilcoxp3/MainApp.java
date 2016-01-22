@@ -31,7 +31,7 @@ public class MainApp {
                     + "4 - Exit\n");
 
             int choice = getInt();
-
+            
             switch (choice) {
                 case 1:
                     sayHello();
@@ -115,6 +115,11 @@ public class MainApp {
         }
     }
 
+    /**
+     * Gets integer input from the console. Returns 0 if input is not an int.
+     *
+     * @return int given by the user
+     */
     private static int getInt() {
 
         int choice;
