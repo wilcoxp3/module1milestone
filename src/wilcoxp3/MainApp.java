@@ -1,6 +1,11 @@
 package wilcoxp3;
 
+/*
+ * Paul Wilcox Module 1 Milestone This application allows a user to be greeted
+ * by name, divide integers, and sort words alphabetically.
+ */
 import java.util.Arrays;
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 /**
@@ -25,8 +30,7 @@ public class MainApp {
                     + "3 - Word Sorter\n"
                     + "4 - Exit\n");
 
-            int choice = sc.nextInt();
-            sc.nextLine();
+            int choice = getInt();
 
             switch (choice) {
                 case 1:
@@ -40,6 +44,9 @@ public class MainApp {
                     break;
                 case 4:
                     keepGoing = false;
+                    break;
+                default:
+                    System.out.println("Sorry, that is not a valid choice.");
                     break;
             }
         }
@@ -108,4 +115,15 @@ public class MainApp {
         }
     }
 
+    private static int getInt() {
+
+        int choice;
+        try {
+            choice = sc.nextInt();
+        } catch (InputMismatchException e) {
+            choice = 0;
+        }
+        sc.nextLine();
+        return choice;
+    }
 }
