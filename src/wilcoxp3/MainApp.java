@@ -1,7 +1,9 @@
 package wilcoxp3;
 
 /*
- * Paul Wilcox Module 1 Milestone This application allows a user to be greeted
+ * Paul Wilcox
+ * Module 1 Milestone
+ * This application allows a user to be greeted
  * by name, divide integers, and sort words alphabetically.
  */
 import java.util.Arrays;
@@ -119,14 +121,14 @@ public class MainApp {
      */
     private static int getInt() {
 
-        int choice;
+        int myInt;
         try {
-            choice = sc.nextInt();
+            myInt = sc.nextInt();
         } catch (InputMismatchException e) {
-            choice = 0;
+            myInt = 0;
         }
         sc.nextLine();
-        return choice;
+        return myInt;
     }
 
     /**
